@@ -13,3 +13,10 @@ body {
     align-items: center;
     padding: 40px 20px;
 }
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    text-align: center;
+}
