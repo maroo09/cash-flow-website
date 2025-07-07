@@ -1,9 +1,16 @@
 import './utils/firebase.js'; // Ensure Firebase is initialized before using auth
 import { auth } from './utils/firebase.js'; // Import the auth instance
 // Import necessary Firebase functions for authentication
-import { createUserWithEmailAndPassword, updateProfile } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
+import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
 
 const signupButton = document.getElementById('signup-button');
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in, redirect to app page
+        window.location.href = '../pages/app.html';
+    }
+});
 
 signupButton.addEventListener('click', async (event) => {
     event.preventDefault();
