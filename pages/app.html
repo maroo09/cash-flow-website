@@ -24,16 +24,13 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Book Name</th>
-                        <th>Balance</th>
+                        <th colspan="4">Balance</th>
                         <th>Actions</th>
                     </tr>
                     <tr>
-                        <th id="book-name"></th>
-                        <th id="book-balance"></th>
-                        <th>
+                        <th id="book-balance" colspan="4">0.00</th>
+                        <th rowspan="2">
                             <button id="add-transaction-button">Add Transaction</button>
-                            <button id="refresh-book-button">Refresh</button>
                         </th>
                     </tr>
                     <tr>
@@ -45,7 +42,7 @@
                 </thead>
                 <tbody id="books-table-body">
                     <tr>
-                        <td colspan="4">No book selected!</td>
+                        <td colspan="5">No book selected!</td>
                     </tr>
                 </tbody>
             </table>
