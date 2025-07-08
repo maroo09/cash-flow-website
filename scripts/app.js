@@ -92,6 +92,7 @@ function updateTable() {
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
                     const row = document.createElement("tr");
+                    row.classList.add(`cash-${data.type}`);
                     row.innerHTML = `
                         <td>${data.notes}</td>
                         <td>${data.amount.toFixed(2)}</td>
