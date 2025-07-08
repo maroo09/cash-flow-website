@@ -90,6 +90,20 @@ tbody td {
     border-bottom: 1px solid #eee;
 }
 
+tbody button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.tbody button:hover {
+    background-color: #c0392b;
+}
+
 /* Balance row */
 #book-balance {
     font-size: 1.4rem;
