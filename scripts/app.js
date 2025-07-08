@@ -9,6 +9,7 @@ import {
     doc,
     setDoc,
     onSnapshot,
+    deleteDoc,
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 const displayName = document.getElementById("display-name");
@@ -56,6 +57,37 @@ editBookButton.addEventListener("click", () => {
             });
     } else {
         alert("Book title cannot be empty.");
+    }
+});
+
+const deleteBookButton = document.getElementById("delete-book-button");
+deleteBookButton.addEventListener("click", () => {
+    const selectedBookId = booksSelect.value;
+    if (selectedBookId === "-1") {
+        alert("Please select a book to delete.");
+        return;
+    }
+    const confirmDelete = confirm(
+        "Are you sure you want to delete this book?"
+    );
+    if (confirmDelete) {
+        const bookRef = doc(
+            db,
+            "Data",
+            auth.currentUser.uid,
+            "Books",
+            selectedBookId
+        );
+        deleteDoc(bookRef)
+            .then(() => {
+                alert("Book deleted successfully!");
+            })
+            .catch((error) => {
+                console.error("Error deleting book:", error);
+                alert(
+                    "An error occurred while deleting the book. Please try again."
+                );
+            });
     }
 });
 
