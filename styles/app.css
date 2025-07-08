@@ -122,3 +122,10 @@ tbody td {
     font-weight: bold;
 }
 
+/* No data row */
+tbody td[colspan="5"] {
+    color: #999;
+    padding: 30px;
+}
+
+
