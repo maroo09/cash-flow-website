@@ -20,10 +20,20 @@ signupButton.addEventListener('click', async (event) => {
 
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        alert('Signup successful!');
-        await updateProfile(userCredential.user, { displayName: name });
-        alert(`User profile updated: ${userCredential.user.displayName}`);
-        window.location.href = '../pages/app.html'; // Redirect to app page after signup
+        const user = userCredential.user;
+
+        // Update the display name
+        await updateProfile(user, { displayName: name });
+        console.log('Profile updated:', auth.currentUser.displayName);
+
+        // Force reload of user data from server to be safe (optional)
+        await user.reload();
+
+        // Confirm update before redirect
+        alert(`User profile updated: ${auth.currentUser.displayName}`);
+
+        // Now redirect
+        window.location.href = '../pages/app.html';
     } catch (error) {
         console.error('Error during signup:', error);
         alert(error.message);

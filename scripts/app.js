@@ -252,6 +252,10 @@ onAuthStateChanged(auth, (user) => {
         // User is not signed in, redirect to login page
         window.location.href = "../pages/login.html";
     } else {
+        
+        // FIXME: Usernames are not saving correctly after signup
+        // TODO: Investigate why displayName is not updating in Firebase
+
         // User is signed in, display their name
         displayName.textContent = user.displayName || user.email;
 
