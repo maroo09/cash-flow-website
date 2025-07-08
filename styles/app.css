@@ -64,3 +64,68 @@ form#book-management button {
 form#book-management button:hover {
     background-color: #2980b9;
 }
+
+/* Table styling */
+table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead th {
+    background-color: #ecf0f1;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+tbody td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* Balance row */
+#book-balance {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+/* Add Transaction Button */
+#add-transaction-button {
+    padding: 10px 16px;
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#add-transaction-button:hover {
+    background-color: #27ae60;
+}
+
+/* Cash-in and Cash-out rows */
+.cash-in {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.cash-out {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* No data row */
+tbody td[colspan="5"] {
+    color: #999;
+    padding: 30px;
+}
+
+
