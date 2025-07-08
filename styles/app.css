@@ -111,3 +111,14 @@ tbody td {
     background-color: #27ae60;
 }
 
+/* Cash-in and Cash-out rows */
+.cash-in {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.cash-out {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
