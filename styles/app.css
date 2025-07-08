@@ -36,3 +36,31 @@ h1 {
     font-size: 2rem;
     text-align: center;
 }
+
+/* Book Management Section */
+form#book-management {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+form#book-management select,
+form#book-management button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+
+form#book-management button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+form#book-management button:hover {
+    background-color: #2980b9;
+}
