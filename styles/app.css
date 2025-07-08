@@ -97,3 +97,17 @@ tbody td {
     color: #2ecc71;
 }
 
+/* Add Transaction Button */
+#add-transaction-button {
+    padding: 10px 16px;
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#add-transaction-button:hover {
+    background-color: #27ae60;
+}
+
