@@ -29,3 +29,10 @@ body {
 #logout-button:hover {
     background-color: #c0392b;
 }
+
+/* Heading */
+h1 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-align: center;
+}
