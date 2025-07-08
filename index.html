@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Flow Website</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+        header {
+            background: #2d6cdf;
+            color: #fff;
+            padding: 24px 0 12px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(45,108,223,0.08);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.4em;
+            letter-spacing: 1px;
+        }
+        nav {
+            margin-top: 12px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: text-decoration 0.2s;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            padding: 64px 0 48px 0;
+            background: linear-gradient(120deg, #e0e7ef 60%, #f8fafc 100%);
+            text-align: center;
+            margin: 20px auto 100px;
+            border-radius: 1em;
+        }
+        .hero h2 {
+            font-size: 2.2em;
+            margin-bottom: 18px;
+            color: #2d6cdf;
+        }
+        .hero p {
+            font-size: 1.2em;
+            color: #444;
+            margin-bottom: 32px;
+        }
+        .hero .cta-buttons {
+            margin-top: 24px;
+        }
+        .cta-buttons a {
+            display: inline-block;
+            margin: 0 12px;
+            padding: 14px 36px;
+            background: #2d6cdf;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background 0.2s;
+        }
+        .cta-buttons a.secondary {
+            background: #f3f6fa;
+            color: #2d6cdf;
+            border: 1px solid #2d6cdf;
+        }
+        .cta-buttons a:hover {
+            background: #1b4e9b;
+            color: #fff;
+        }
+        .cta-buttons a.secondary:hover {
+            background: #e0e7ef;
+            color: #1b4e9b;
+        }
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 16px;
+        }
+        .about {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(45,108,223,0.04);
+            margin-top: -40px;
+            margin-bottom: 32px;
+        }
+        .about h3 {
+            color: #2d6cdf;
+            margin-top: 0;
+        }
+        .features {
+            background: #f3f6fa;
+            border-radius: 12px;
+            margin-bottom: 32px;
+        }
+        .features h3 {
+            color: #2d6cdf;
+        }
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin: 32px 0 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        .features-list li {
+            flex: 1 1 220px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(45,108,223,0.06);
+            padding: 24px 18px;
+            margin: 0;
+            font-size: 1.08em;
+            color: #333;
+            min-width: 180px;
+        }
+        .team {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(45,108,223,0.04);
+            margin-bottom: 32px;
+        }
+        .team h3 {
+            color: #2d6cdf;
+        }
+        .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin: 32px 0 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        .team-member {
+            flex: 1 1 200px;
+            background: #f3f6fa;
+            border-radius: 8px;
+            padding: 24px 18px;
+            text-align: center;
+            min-width: 160px;
+        }
+        .team-member img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            object-fit: cover;
+            background: #e0e7ef;
+        }
+        .team-member h4 {
+            margin: 8px 0 4px 0;
+            color: #2d6cdf;
+        }
+        .team-member a {
+            color: #2d6cdf;
+            text-decoration: none;
+            font-size: 0.98em;
+        }
+        .team-member a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #2d6cdf;
+            color: #fff;
+            text-align: center;
+            padding: 24px 0 12px 0;
+            margin-top: 48px;
+        }
+        @media (max-width: 900px) {
+            .features-list, .team-list {
+                flex-direction: column;
+                gap: 18px;
+            }
+        }
+        @media (max-width: 700px) {
+            section {
+                padding: 32px 4px;
+            }
+            .hero {
+                padding: 40px 0 24px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cash Flow</h1>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#team">Team</a>
+            <a href="#footer">Contact</a>
+        </nav>
+    </header>
+    <section class="hero" id="hero">
+        <h2>Take Control of Your Finances</h2>
+        <p>Track your expenses, income, and manage your personal finances with ease. Cash Flow is your simple, secure, and intuitive cash book app—accessible anywhere, anytime.</p>
+        <div class="cta-buttons">
+            <a href="pages/login.html">Log In</a>
+            <a href="pages/signup.html" class="secondary">Sign Up</a>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <h3>About Cash Flow</h3>
+        <p>Cash Flow is designed to help individuals and small businesses keep track of their daily cash transactions. With a focus on simplicity and security, you can easily manage multiple books, record cash in/out, and always know your balance—wherever you are.</p>
+    </section>
+    <section class="features" id="features">
+        <h3>Features</h3>
+        <ul class="features-list">
+            <li>🔒 Secure user authentication</li>
+            <li>📚 Manage multiple books</li>
+            <li>💸 Add, edit, and delete cash in/out entries</li>
+            <li>📈 Real-time dashboard and transaction history</li>
+            <li>☁️ Cloud saving and synchronization</li>
+            <li>📱 Responsive, intuitive UI</li>
+        </ul>
+    </section>
+    <section class="team" id="team">
+        <h3>Meet the Team</h3>
+        <ul class="team-list">
+            <li class="team-member">
+                <img src="https://avatars.githubusercontent.com/u/213987172?v=4" alt="Marwa Awad">
+                <h4>Marwa Awad</h4>
+                <div>Full Stack Developer</div>
+                <a href="https://github.com/maroo09" target="_blank">@maroo09</a>
+            </li>
+            <li class="team-member">
+                <img src="https://avatars.githubusercontent.com/u/102138227?v=4" alt="Husam Mohamed">
+                <h4>Husam Mohamed</h4>
+                <div>Frontend Developer</div>
+                <a href="https://github.com/husamXA1" target="_blank">@husamXA1</a>
+            </li>
+        </ul>
+    </section>
+    <footer id="footer">
+        <div>© 2025 Cash Flow. All rights reserved.</div>
+        <div style="margin-top:8px;font-size:0.98em;">Questions or suggestions? <a href="https://github.com/maroo09/cash-flow-website/issues" style="color:#fff;text-decoration:underline;">Contact us on GitHub</a></div>
+    </footer>
+</body>
+</html>
