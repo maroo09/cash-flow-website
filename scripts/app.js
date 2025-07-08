@@ -91,6 +91,51 @@ deleteBookButton.addEventListener("click", () => {
     }
 });
 
+const addTransactionButton = document.getElementById("add-transaction-button");
+addTransactionButton.addEventListener("click", () => {
+    const selectedBookId = booksSelect.value;
+    if (selectedBookId === "-1") {
+        alert("Please select a book to add a transaction.");
+        return;
+    }
+    // Redirect to the transaction page with the selected book ID
+    const transactionType = prompt(
+        "Enter transaction type (in/out):"
+    );
+    if (transactionType !== "in" && transactionType !== "out") {
+        alert("Invalid transaction type. Please enter 'in' or 'out'.");
+        return;
+    }
+    const transactionAmount = prompt("Enter transaction amount:");
+    if (isNaN(transactionAmount) || transactionAmount <= 0) {
+        alert("Invalid transaction amount. Please enter a positive number.");
+        return;
+    }
+    const transactionNotes = prompt("Enter transaction notes:");
+    if (!transactionNotes) {
+        alert("Transaction notes cannot be empty.");
+        return;
+    }
+    const transactionRef = doc(
+        collection(db, "Data", auth.currentUser.uid, "Books", selectedBookId, "Records")
+    );
+    setDoc(transactionRef, {
+        type: transactionType,
+        amount: parseFloat(transactionAmount),
+        notes: transactionNotes,
+        timestamp: new Date(),
+    })
+        .then(() => {
+            alert("Transaction added successfully!");
+        })
+        .catch((error) => {
+            console.error("Error adding transaction:", error);
+            alert(
+                "An error occurred while adding the transaction. Please try again."
+            );
+        });
+});
+
 // Check if the user is already authenticated
 onAuthStateChanged(auth, (user) => {
     if (!user) {
