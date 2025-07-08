@@ -25,10 +25,29 @@ booksSelect.addEventListener("change", (event) => {
 });
 
 function deleteRecord(recordID) {
-    // TODO
-    console.warn("Deleting...");
-    console.warn(recordID);
-    console.warn("Not implemented yet");
+    const recordRef = doc(
+        db,
+        "Data",
+        auth.currentUser.uid,
+        "Books",
+        selectedBookId,
+        "Records",
+        recordID
+    );
+    const confirmDelete = confirm("Are you sure you want to delete this book?");
+    if (confirmDelete) {
+        deleteDoc(recordRef)
+            .then(() => {
+                updateTable();
+                alert("Record deleted successfully!");
+            })
+            .catch((error) => {
+                console.error("Error deleting record:", error);
+                alert(
+                    "An error occurred while deleting the record. Please try again."
+                );
+            });
+    }
 }
 
 function updateTable() {
