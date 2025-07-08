@@ -1,15 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cash Flow</title>
-</head>
-<body>
-    <h1>Hello, <span id="display-name">User</span>!</h1>
-    <p>This is your Cash Flow...</p>
-    <button id="logout-button">Logout</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cash Flow</title>
+    </head>
+    <body>
+        <button id="logout-button">Logout</button>
+        <h1>Hello, <span id="display-name">User</span>!</h1>
+        <div class="books">
+            <form id="book-management">
+                <select name="books" id="books-select">
+                    <option selected disabled value="-1">
+                        -- Select Book --
+                    </option>
+                </select>
+                <button type="button" id="edit-book-button">Edit Book</button>
+                <button type="button" id="delete-book-button">
+                    Delete Book
+                </button>
+                <button type="button" id="add-book-button">Add Book</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Book Name</th>
+                        <th>Balance</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <th id="book-name"></th>
+                        <th id="book-balance"></th>
+                        <th>
+                            <button id="add-transaction-button">Add Transaction</button>
+                            <button id="refresh-book-button">Refresh</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Notes</th>
+                        <th>Amount</th>
+                        <th>Transaction Type</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="books-table-body">
+                    <tr>
+                        <td colspan="4">No book selected!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <script type="module" src="../scripts/app.js"></script>
-</body>
+        <script type="module" src="../scripts/app.js"></script>
+    </body>
 </html>
