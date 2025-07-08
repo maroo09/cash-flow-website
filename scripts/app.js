@@ -15,6 +15,44 @@ const displayName = document.getElementById("display-name");
 const logoutButton = document.getElementById("logout-button");
 const booksSelect = document.getElementById("books-select");
 
+const editBookButton = document.getElementById("edit-book-button");
+editBookButton.addEventListener("click", () => {
+    const selectedBookId = booksSelect.value;
+    if (selectedBookId === "-1") {
+        alert("Please select a book to edit.");
+        return;
+    }
+    const bookTitle = prompt("Enter the new book title:");
+    if (bookTitle) {
+        const bookRef = doc(
+            db,
+            "Data",
+            auth.currentUser.uid,
+            "Books",
+            selectedBookId
+        );
+        setDoc(
+            bookRef,
+            {
+                title: bookTitle,
+                timestamp: new Date(),
+            },
+            { merge: true }
+        )
+            .then(() => {
+                alert("Book updated successfully!");
+            })
+            .catch((error) => {
+                console.error("Error updating book:", error);
+                alert(
+                    "An error occurred while updating the book. Please try again."
+                );
+            });
+    } else {
+        alert("Book title cannot be empty.");
+    }
+});
+
 // Check if the user is already authenticated
 onAuthStateChanged(auth, (user) => {
     if (!user) {
@@ -27,8 +65,12 @@ onAuthStateChanged(auth, (user) => {
         // Listen for real-time updates to books
         const userBooksRef = collection(db, "Data", user.uid, "Books");
         onSnapshot(userBooksRef, (docSnap) => {
-            console.log("Listening for updates to user document:", userBooksRef.path);
-            booksSelect.innerHTML = '<option selected disabled value="-1">-- Select Book --</option>'; // Clear existing options
+            console.log(
+                "Listening for updates to user document:",
+                userBooksRef.path
+            );
+            booksSelect.innerHTML =
+                '<option selected disabled value="-1">-- Select Book --</option>'; // Clear existing options
             docSnap.forEach((doc) => {
                 const bookData = doc.data();
                 const option = document.createElement("option");
