@@ -15,6 +15,12 @@ const displayName = document.getElementById("display-name");
 const logoutButton = document.getElementById("logout-button");
 const booksSelect = document.getElementById("books-select");
 
+let selectedBookId = -1; // Default value for no book selected
+// Add event listener for book selection change
+booksSelect.addEventListener("change", (event) => {
+    selectedBookId = event.target.value; // Update the selected book ID
+});
+
 const editBookButton = document.getElementById("edit-book-button");
 editBookButton.addEventListener("click", () => {
     const selectedBookId = booksSelect.value;
@@ -76,6 +82,9 @@ onAuthStateChanged(auth, (user) => {
                 const option = document.createElement("option");
                 option.value = doc.id; // Use document ID as value
                 option.textContent = bookData.title; // Display book title
+                if (doc.id === selectedBookId) {
+                    option.selected = true; // Select the previously selected book
+                }
                 booksSelect.appendChild(option);
             });
         });
